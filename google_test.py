@@ -1,13 +1,17 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.edge.service import Service
+from selenium.webdriver.edge.options import Options
 import time
 import unittest
 
 class GoogleTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Edge()
-        self.driver.maximize_window()
+        self.options = Options()
+        self.options.add_argument("headless")
+        self.service = Service(r"C:\Webdriver\msedgedriver.exe")
+        self.driver = webdriver.Edge(options = self.options, service = self.service)
         self.driver.get("https://www.google.co.uk/")
         time.sleep(5)
     
