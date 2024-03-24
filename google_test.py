@@ -4,6 +4,7 @@ from selenium.webdriver.edge.service import Service
 from selenium.webdriver.edge.options import Options
 import time
 import unittest
+import xmlrunner
 
 class GoogleTestCase(unittest.TestCase):
 
@@ -31,4 +32,4 @@ class GoogleTestCase(unittest.TestCase):
         self.driver.quit()
     
 if __name__=='__main__':
-    unittest.main()
+    unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test-reports'), failfast=False, buffer=False, catchbreak=False, exit=False)
